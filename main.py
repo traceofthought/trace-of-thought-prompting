@@ -85,9 +85,9 @@ else:
 if choices_split is not None:
 	choices_split = choices_split[offset:size]
 
-if prompting == Prompt.SystemOfThought:
+if prompting == Prompt.TraceOfThought:
     print("Beginning sampling with System of Thought...")
-    engine = sot.SystemOfThought(question_split[offset:size], answer_split[offset:size], choices_split, -1, input_model, output_model, ollama_addr)
+    engine = sot.TraceOfThought(question_split[offset:size], answer_split[offset:size], choices_split, -1, input_model, output_model, ollama_addr)
     engine.sample(size, offset)
 elif prompting == Prompt.ChainOfThought:
     print("Beginning sampling with Chain of Thought...")
