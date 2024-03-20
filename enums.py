@@ -24,5 +24,5 @@ class OllamaMode(Enum):
 
 class Prompt(Enum):
     ChainOfThought = 1
-    SystemOfThought = 2
+    TraceOfThought = 2
     StandardPrompt = 3
