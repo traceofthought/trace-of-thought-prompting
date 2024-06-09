@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 from enums import Dataset, Model, OllamaMode, Prompt
 from utils import restructureCSQAChoices
 import cot
-import sot
+import tot
+import plansolve
 import standard
 
 load_dotenv()
@@ -86,8 +87,8 @@ if choices_split is not None:
 	choices_split = choices_split[offset:size]
 
 if prompting == Prompt.TraceOfThought:
-    print("Beginning sampling with System of Thought...")
-    engine = sot.TraceOfThought(question_split[offset:size], answer_split[offset:size], choices_split, -1, input_model, output_model, ollama_addr)
+    print("Beginning sampling with Trace of Thought...")
+    engine = tot.TraceOfThought(question_split[offset:size], answer_split[offset:size], choices_split, -1, input_model, output_model, ollama_addr)
     engine.sample(size, offset)
 elif prompting == Prompt.ChainOfThought:
     print("Beginning sampling with Chain of Thought...")

@@ -17,6 +17,7 @@ class Model(Enum):
     Llama27BText = 8
     Zephyr = 9
     Llama27BChat = 10
+    Llama38B = 11
 
 class OllamaMode(Enum):
     Local = 1
@@ -26,3 +27,4 @@ class Prompt(Enum):
     ChainOfThought = 1
     TraceOfThought = 2
     StandardPrompt = 3
+    PlanAndSolve = 4

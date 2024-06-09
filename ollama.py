@@ -21,6 +21,8 @@ def promptOllama(prompt, model):
             model_param = "llama2:7b-chat" ## chat fine-tuning
         case Model.Zephyr:
             model_param = "zephyr"
+        case Model.Llama38B:
+            model_param = "llama3:8b"
         case _:
             print("Ollama model not supported.")
             exit(1)

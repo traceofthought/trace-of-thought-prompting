@@ -54,7 +54,7 @@ class StandardPrompt:
                 response = answer["text"]
                 count = (answer["input_count"] + answer["output_count"])
 
-            with (open("sp-l27bchat-feb5.csv", 'a')) as csvFile:
+            with (open(f"sp-{self.input_model}.csv", 'a')) as csvFile:
                 writer = csv.writer(csvFile, delimiter=',')
                 writer.writerow(
                     [prompt, response, self.answers[i], count])

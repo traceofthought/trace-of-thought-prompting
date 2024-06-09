@@ -4,7 +4,7 @@ from enums import Model
 from ollama import promptOllama
 
 
-class ChainOfThought:
+class PlanAndSolve:
 
     def __init__(self, dataset, answers, choices, input_model):
         self.dataset = dataset
@@ -21,7 +21,7 @@ class ChainOfThought:
                 input_prompt = self.dataset[i]
             else:
                 input_prompt = f'{self.dataset[i]}\n{self.choices[i]}'
-            prompt = f'${input_prompt} Think step-by-step.'
+            prompt = f'${input_prompt} Let\'s first understand the problem and devise a plan to solve the problem. Then, let\'s carry out the plan and solve the problem step-by-step.'
             print(f'Executing prompt {offset+i}')
 
             if self.input_model == Model.GPT4 or self.input_model == Model.GPT3point5:
@@ -54,7 +54,7 @@ class ChainOfThought:
                 response = answer["text"]
                 count = (answer["input_count"] + answer["output_count"])
 
-            with (open(f"cot-{self.input_model}.csv", 'a')) as csvFile:
+            with (open(f"plansolve-{self.input_model}.csv", 'a')) as csvFile:
                 writer = csv.writer(csvFile, delimiter=',')
                 writer.writerow(
                     [prompt, response, self.answers[i], count])
